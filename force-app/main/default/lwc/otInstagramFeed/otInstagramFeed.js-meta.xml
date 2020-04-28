@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="otInstagramFeed">
+    <apiVersion>48.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Instagram Feeds</masterLabel>
+    <description>Instagram Feeds</description>
+    <targets>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default, lightning__AppPage, lightning__RecordPage, lightning__HomePage">
+            <property name="title" label="Title" type="String" />
+            <property name="username" label="Username" type="String" description="Instagram Username" />
+            <property name="hashtag" label="Hashtag" type="String" description="Instagram Hashtag" />
+            <!-- <property name="ShareFileParentFolderId" label="Parent Folder Id" type="String" description="ShareFile Parent Folder Id to create Folder" />
+            <property name="showGrantAccessToContact" label="Show Grant Access To Contact" type="Boolean" default="false" />
+            <property name="showOpenInShareFile" label="Show Open In ShareFile" type="Boolean" default="false" /> -->
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

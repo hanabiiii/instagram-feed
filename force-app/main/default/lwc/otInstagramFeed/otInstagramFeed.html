@@ -1,0 +1,87 @@
+<template>
+
+    <div if:true={hasConfig} class={wrapperClass}>
+
+        <div class="slds-card__header slds-grid">
+            <header if:true={isLoading} class="slds-media slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                        <lightning-icon icon-name="standard:avatar_loading" alternative-text="loading" ></lightning-icon>
+                    </span>
+                </div>
+            </header>
+            <header if:false={isLoading} class="slds-media slds-has-flexi-truncate">
+                <template if:false={hasError}>
+                    <div class="slds-media__figure">
+                        <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                            <img alt={info.full_name} src={info.profile_pic_url} title={info.full_name} />
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title={componentTitle}>
+                                <span>{componentTitle}</span>
+                            </a>
+                        </h2>
+                        <div class="slds-card__body slds-m-top_none">
+                            <template if:false={isHashtagType}>
+                                <div class="slds-grid slds-wrap slds-gutters_direct-xx-small">
+                                    <span class="slds-col">{info.count} Posts</span>
+                                    <span class="slds-col">{info.edge_followed_by} Followers</span>
+                                    <span class="slds-col">{info.edge_follow} Following</span>
+                                </div>
+                                <lightning-formatted-rich-text value={info.biography} ></lightning-formatted-rich-text>
+                            </template>
+    
+                            <template if:true={isHashtagType}>
+                                <div>
+                                    <span>{info.count} Posts</span>
+                                </div>
+                                <div class="related-tags">
+                                    <span if:true={info.related_tags.length}>Related Tags: </span>
+                                    <template for:each={info.related_tags} for:item="tag">
+                                        <span key={tag.id}>#{tag.label}</span>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="slds-no-flex">
+                        <!-- <button class="slds-button slds-button_neutral">New</button> -->
+                    </div>
+                </template>
+            </header>
+        </div>
+
+        <div class="slds-card__body slds-card__body_inner">
+            <div if:true={hasError} class="slds-text-color_error">
+                <lightning-formatted-rich-text value={errorMsg}></lightning-formatted-rich-text>
+            </div>
+            <div if:true={isLoading}>
+                <lightning-spinner variant="brand" alternative-text="Loading..."></lightning-spinner>
+            </div>
+            <div if:false={isLoading} class="row wrap">
+                <template for:each={photos} for:item="photo">
+                    <div key={photo.id} class="col col-sm-2 col-md-3 col-lg-3 col-xl-3">
+                        <c-ot-instagram-feed-item photo={photo}></c-ot-instagram-feed-item>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <footer class="slds-card__footer"></footer>
+
+    </div>
+
+    <div if:false={hasConfig} class={wrapperClass}>
+        <div class="slds-card__header slds-grid">
+            <header class="slds-media slds-has-flexi-truncate">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_circle slds-avatar_large">
+                        <lightning-icon icon-name="standard:avatar_loading" alternative-text="loading" ></lightning-icon>
+                    </span>
+                </div>
+            </header>
+        </div>
+    </div>
+</template>

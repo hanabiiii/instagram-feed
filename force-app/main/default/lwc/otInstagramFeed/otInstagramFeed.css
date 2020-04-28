@@ -1,0 +1,75 @@
+.ot-instagram-feed {
+
+}
+
+.related-tags {
+    display: inline-flex;
+    flex-flow: wrap;
+}
+.related-tags span:not(:last-child) {
+    margin-right: 5px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+}
+.row.wrap {
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+.ot-instagram-feed.narrow .col {
+    -ms-flex-preferred-size: 100% !important;
+    flex-basis: 100% !important;
+    -ms-flex-positive: 1 !important;
+    flex-grow: 1 !important;
+    max-width: 100% !important;
+}
+
+/* Extra small devices (portrait phones, less than 576px) x240 */
+@media (max-width: 575.98px) {
+    .col {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) x240 */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .col-sm-2 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) x240 */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) x320 */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .col-lg-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) x480 */
+@media (min-width: 1200px) {
+    .col-xl-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}

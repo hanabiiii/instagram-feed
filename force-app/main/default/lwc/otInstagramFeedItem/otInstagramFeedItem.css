@@ -1,0 +1,36 @@
+.ot-instagram-feed-item {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.ot-instagram-feed-item_status {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.ot-instagram-feed-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ot-instagram-feed-item_info {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    visibility: collapse;
+}
+.ot-instagram-feed-item_info .ot-instagram-feed-item_info-item {
+    display: inline-flex;
+    align-items: center;
+    align-content: center;
+}
+
+.ot-instagram-feed-item:hover .ot-instagram-feed-item_info {
+    visibility: visible;
+}

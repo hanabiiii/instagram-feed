@@ -1,0 +1,23 @@
+<template>
+    <div class="ot-instagram-feed-item" onclick={handleItemClick}>
+        <div class="ot-instagram-feed-item_status slds-p-around_x-small slds-grid slds-grid_align-end">
+            <!-- <lightning-icon if:true={photo} class="slds-col" icon-name="utility:video" alternative-text="video" size="small"></lightning-icon> -->
+        </div>
+
+        <img class="ot-instagram-feed-photo" srcset={sourceSets} sizes={sourceSizes}
+            src={defaultSrc}
+            alt={photo.accessibility_caption} />
+
+        <div class="ot-instagram-feed-item_info slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+            <span class="ot-instagram-feed-item_info-item slds-m-horizontal_x-small slds-text-color_inverse slds-text-heading_small">
+                <lightning-icon icon-name="utility:like" class="slds-m-right_xx-small" alternative-text="like" variant="inverse" size="small"></lightning-icon>
+                {likeCount}
+            </span>
+            <span if:false={isCommentsDisabled} class="ot-instagram-feed-item_info-item slds-m-horizontal_x-small slds-text-color_inverse slds-text-heading_small">
+                <lightning-icon icon-name="utility:comments" class="slds-m-right_xx-small" alternative-text="comments" variant="inverse" size="small"></lightning-icon>
+                {commentCount}
+            </span>
+        </div>
+
+    </div>
+</template>
