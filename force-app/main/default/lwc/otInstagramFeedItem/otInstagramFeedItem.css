@@ -3,6 +3,7 @@
     cursor: pointer;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 .ot-instagram-feed-item_status {
@@ -12,9 +13,13 @@
 }
 
 .ot-instagram-feed-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
 }
 
 .ot-instagram-feed-item_info {

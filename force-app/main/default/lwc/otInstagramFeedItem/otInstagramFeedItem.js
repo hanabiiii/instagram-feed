@@ -70,6 +70,43 @@ export default class otInstagramFeedItem extends LightningElement {
         return false;
     }
 
+    @api placeholderColor;
+    @api durationFadeIn = 500;//ms
+    @track imageLoaded = false;
+
+    get imageStyle() {
+        let style = '';
+        style += `opacity: ${(this.imageLoaded ? 1 : 0)};`;
+        style += this.transitionDelay;
+        return style;
+    }
+
+    get imagePlaceholderWrapperStyle() {
+        let style = 'position: absolute; top: 0; bottom: 0; right: 0; left: 0;';
+        style += `opacity: ${(this.imageLoaded ? 0 : 1)};`;
+        style += this.transitionDelay;
+        return style;
+    }
+    get imagePlaceholderBackgroundColorStyle() {
+        let style = 'height: 100%; width: 100%;';
+        style += `background-color: ${(isEmpty(this.placeholderColor) ? 'lightgray' : this.placeholderColor)};`;
+        return style;
+    }
+    get transitionDelay() {
+        let style = '';
+        style += `transition: opacity ${(this.durationFadeIn > 0 ? this.durationFadeIn + 'ms' : 'none')};`;
+        style += `transition-delay: ${(this.durationFadeIn > 0 ? this.durationFadeIn + 'ms' : 'none')};`;
+        return style;
+    }
+
+    handleImageLoaded() {
+        this.imageLoaded = true;
+    }
+    handleOnError(error) {
+        this.imageLoaded = true;
+        console.log('load error', {...error});
+    }
+
     handleItemClick(event) {
         event.preventDefault();
         console.log(JSON.parse(JSON.stringify(this._photo)));

@@ -4,9 +4,21 @@
             <!-- <lightning-icon if:true={photo} class="slds-col" icon-name="utility:video" alternative-text="video" size="small"></lightning-icon> -->
         </div>
 
-        <img class="ot-instagram-feed-photo" srcset={sourceSets} sizes={sourceSizes}
-            src={defaultSrc}
-            alt={photo.accessibility_caption} />
+        <!-- Preserve the aspect ratio. -->
+        <div style="width: 100%;padding-bottom: 100%;"></div>
+        <!-- Show a placeholder with background color. -->
+        <div style={imagePlaceholderWrapperStyle}>
+            <div style={imagePlaceholderBackgroundColorStyle}></div>
+            <div role="status" class="slds-spinner slds-spinner_medium">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+        <img class="ot-instagram-feed-photo" style={imageStyle}
+            alt={photo.accessibility_caption} loading="lazy"
+            srcset={sourceSets} sizes={sourceSizes} src={defaultSrc}
+            onload={handleImageLoaded} onerror={handleOnError} />
 
         <div class="ot-instagram-feed-item_info slds-grid slds-grid_align-center slds-grid_vertical-align-center">
             <span class="ot-instagram-feed-item_info-item slds-m-horizontal_x-small slds-text-color_inverse slds-text-heading_small">
