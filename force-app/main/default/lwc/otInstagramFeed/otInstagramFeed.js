@@ -103,4 +103,14 @@ export default class otInstagramFeed extends LightningElement {
         }
     }
 
+    handleItemClick(event) {
+        if (event.detail.id) {
+            const photo = this.photos.filter(p => p.id == event.detail.id)[0];
+
+            if (photo) {
+                const itemModal = this.template.querySelector('.item-modal');
+                itemModal.show(photo);
+            }
+        }
+    }
 }

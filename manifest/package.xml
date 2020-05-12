@@ -9,6 +9,7 @@
     <types>
         <members>otInstagramFeed</members>
         <members>otInstagramFeedItem</members>
+        <members>otInstagramFeedItemModal</members>
         <members>otInstagramFeedUtils</members>
         <name>LightningComponentBundle</name>
     </types>

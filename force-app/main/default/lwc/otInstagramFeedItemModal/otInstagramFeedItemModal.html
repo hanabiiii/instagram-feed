@@ -1,0 +1,105 @@
+<template>
+
+    <section role="dialog" tabindex="-1" class={modalClass}>
+        <div class="slds-modal__container">
+            <div class="modal-body slds-modal__content">
+
+                <div class="feed-item-modal_content" role="dialog" tabindex="-1" >
+                    <div class="toolbar top" >
+
+                        <div class="slds-grid slds-grid_align-spread preview-top-toolbar" >
+                            <div class="feed-item-modal-title" >
+                                <span >
+                                    <lightning-icon icon-name="doctype:image" alternative-text="image" >
+                                    </lightning-icon>
+                                </span>
+                                <span class="slds-truncate slds-m-left_x-small" ></span>
+                            </div>
+                            <div class="feed-item-modal-buttons slds-align_absolute-center slds-hide" >
+
+                                <!-- <div class="slds-m-right_small" >
+                                    <lightning-button variant="inverse" icon-name="utility:like" label="Like" title="Like" disabled={isLoading}>
+                                    </lightning-button>
+                                </div> -->
+
+                                <!-- <div class="" >
+                                    <lightning-button-menu alternative-text="Actions" variant="bare-inverse" menu-alignment="auto" icon-name="utility:settings" disabled={isLoading}
+                                        onselect={handleActionBarSelect}>
+                                        <lightning-menu-item value="download" label="Download" prefix-icon-name="utility:download"></lightning-menu-item>
+                                    </lightning-button-menu>
+                                </div> -->
+
+                            </div>
+                            <div class="feed-item-modal-close slds-align-right" >
+                                <span if:true={photoInfoLoaded} class="preview-close-text slds-truncate"></span>
+                                <div class="" >
+                                    <lightning-button-icon icon-name="utility:close" alternative-text="Close" variant="bare-inverse" onclick={hide}>
+                                    </lightning-button-icon>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="preview" >
+
+                        <div if:true={isLoading} class="preview-status slds-is-relative" >
+                            <lightning-spinner size="small" variant="brand" alternative-text="Loading"></lightning-spinner>
+                        </div>
+
+                        <div class="preview-content slds-grid slds-grid_align-center">
+
+                            <div class="thumbnail" >
+                                <!-- Preserve the aspect ratio. -->
+                                <div style="width: 100%;padding-bottom: 100%;"></div>
+                                <!-- Show a placeholder with background color. -->
+                                <div style={imagePlaceholderWrapperStyle}>
+                                    <div style={imagePlaceholderBackgroundColorStyle}></div>
+                                    <div role="status" class="slds-spinner slds-spinner_medium">
+                                        <span class="slds-assistive-text">Loading</span>
+                                        <div class="slds-spinner__dot-a"></div>
+                                        <div class="slds-spinner__dot-b"></div>
+                                    </div>
+                                </div>
+                                <img if:false={isPhotoEmpty} class="ot-instagram-feed-photo pageImg" style={imageStyle}
+                                    alt={photo.accessibility_caption} loading="lazy"
+                                    srcset={sourceSets} sizes={sourceSizes} src={defaultSrc}
+                                    onload={handleImageLoaded} onerror={handleOnError} />
+                            </div>
+
+                            <div class="info">
+                                <div class="slds-card__header slds-grid slds-p-bottom_small slds-border_bottom">
+                                    <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                                        <div class="slds-media__figure">
+                                            <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                                                <img alt={info.full_name} src={info.profile_pic_url} title={info.full_name} />
+                                            </span>
+                                        </div>
+                                        <div class="slds-media__body">
+                                            <h2 class="slds-card__header-title">
+                                                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title={info.full_name}>
+                                                    <span>{info.full_name}</span>
+                                                </a>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div if:true={hasError} class="preview-status" >
+                            <div class="slds-text-color_error">
+                                <lightning-formatted-rich-text value={errorMsg}></lightning-formatted-rich-text>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class={backdropClass}></div>
+
+</template>

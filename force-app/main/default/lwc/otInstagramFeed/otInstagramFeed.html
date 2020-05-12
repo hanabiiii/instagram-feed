@@ -63,7 +63,7 @@
             <div if:false={isLoading} class="row wrap">
                 <template for:each={photos} for:item="photo">
                     <div key={photo.id} class="col col-sm-2 col-md-3 col-lg-3 col-xl-3">
-                        <c-ot-instagram-feed-item photo={photo}></c-ot-instagram-feed-item>
+                        <c-ot-instagram-feed-item photo={photo} onclick={handleItemClick}></c-ot-instagram-feed-item>
                     </div>
                 </template>
             </div>
@@ -84,4 +84,6 @@
             </header>
         </div>
     </div>
+
+    <c-ot-instagram-feed-item-modal class="item-modal" info={info}></c-ot-instagram-feed-item-modal>
 </template>
