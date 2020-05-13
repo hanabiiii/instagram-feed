@@ -1,5 +1,28 @@
 public class otInstagramFeedHelper {
     
+    public String getInstagramSharedData(String response) {
+        String scriptTag = '<script type="text/javascript">';
+        List<String> dataElement = new List<String>{ scriptTag };
+        Map<String, List<String>> childTagAttributes;
+        if (Test.isRunningTest()) {
+            childTagAttributes = new Map<String, List<String>>();
+            childTagAttributes.put('<script type="text/javascript">', new List<String>{ 'type' });
+        }
+        List<Map<String,List<String>>> scripts = parse(response, 'body', dataElement, childTagAttributes, null);
+        System.debug('@@@ Object: ' + scripts);
+        if (scripts.size() == 1) {
+            List<String> dataValues = scripts[0].get(scriptTag);
+            if (dataValues.size() == 1) {
+                String data = dataValues[0];
+                data = data.replace('window._sharedData = ', '').replace(';', '');
+                System.debug(data);
+                //System.debug(JSON.deserializeUntyped(data));
+                return data;
+            }
+        }
+        return '{}';
+    }
+    
     // ApexHTMLParser: https://github.com/derekweber/ApexHTMLParser
     // return a list of pseudo objects defined by specified primary tag (object) and list of child tags (fields)
     public List<Map<String,List<String>>> parse(String html, String parentTag, List<String> childTags, Map<String,List<String>> childTagAttributes, Map<String,integer> childTagOccurrence) {
