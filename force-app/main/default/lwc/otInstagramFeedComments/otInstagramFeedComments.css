@@ -1,0 +1,29 @@
+.comment-list {
+    padding: 12px 16px;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.comment-list .comment-item:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+
+/* width */
+.comment-list::-webkit-scrollbar {
+    width: 8px;
+}
+/* Track */
+.comment-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Handle */
+.comment-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+}
+/* Handle on hover */
+.comment-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

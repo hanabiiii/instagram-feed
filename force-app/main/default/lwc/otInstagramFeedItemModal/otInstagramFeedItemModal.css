@@ -263,3 +263,12 @@
         width: 350px;
     }
 }
+
+.feed-item-modal-title {
+    visibility: hidden;
+}
+
+.comments {
+    position: relative;
+    height: calc(100% - 62px);
+}

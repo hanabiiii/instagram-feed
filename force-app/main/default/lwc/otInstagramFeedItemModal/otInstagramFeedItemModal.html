@@ -67,8 +67,8 @@
                                     onload={handleImageLoaded} onerror={handleOnError} />
                             </div>
 
-                            <div class="info">
-                                <div class="slds-card__header slds-grid slds-p-bottom_small slds-border_bottom">
+                            <div class="info slds-border_left">
+                                <div class="slds-card__header slds-grid slds-p-bottom_small slds-m-bottom_none slds-border_bottom">
                                     <div class="slds-media slds-media_center slds-has-flexi-truncate">
                                         <div class="slds-media__figure">
                                             <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
@@ -83,6 +83,9 @@
                                             </h2>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="comments">
+                                    <c-ot-instagram-feed-comments info={info} caption={photo.caption} show-caption ></c-ot-instagram-feed-comments>
                                 </div>
 
                             </div>

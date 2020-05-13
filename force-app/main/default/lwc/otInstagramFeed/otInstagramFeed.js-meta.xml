@@ -13,12 +13,9 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default, lightning__AppPage, lightning__RecordPage, lightning__HomePage">
-            <property name="title" label="Title" type="String" />
-            <property name="username" label="Username" type="String" description="Instagram Username" />
-            <property name="hashtag" label="Hashtag" type="String" description="Instagram Hashtag" />
-            <!-- <property name="ShareFileParentFolderId" label="Parent Folder Id" type="String" description="ShareFile Parent Folder Id to create Folder" />
-            <property name="showGrantAccessToContact" label="Show Grant Access To Contact" type="Boolean" default="false" />
-            <property name="showOpenInShareFile" label="Show Open In ShareFile" type="Boolean" default="false" /> -->
+            <property name="title" label="Title" type="String"/>
+            <property name="username" label="Username" type="String" description="Instagram Username"/>
+            <property name="hashtag" label="Hashtag" type="String" description="Instagram Hashtag"/>
         </targetConfig>
     </targetConfigs>
 </LightningComponentBundle>
