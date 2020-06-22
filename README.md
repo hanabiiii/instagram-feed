@@ -41,3 +41,5 @@ sfdx force:source:deploy -x manifest/package -u [your-account]
 
 
 ## Installing using an Unmanaged Package
+
+Please check the [releases page](https://github.com/hanabiiii/instagram-feed/releases)
