@@ -8,6 +8,8 @@
     </types>
     <types>
         <members>otInstagramFeed</members>
+        <members>otInstagramFeedCommentItem</members>
+        <members>otInstagramFeedComments</members>
         <members>otInstagramFeedItem</members>
         <members>otInstagramFeedItemModal</members>
         <members>otInstagramFeedUtils</members>
