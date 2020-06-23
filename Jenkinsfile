@@ -196,7 +196,7 @@ node {
 
             stage('Push To Package Org') {
                 // rc = command "${sfdx} force:mdapi:deploy -d mdapi-source/updated-package --targetusername PkgOrg --testlevel ${TEST_LEVEL} -w -1"
-                rc = command "${sfdx} force:mdapi:deploy -d mdapi-source/updated-package --targetusername PkgOrg --testlevel RunSpecifiedTests --runtests JenkinsCITest -w -1"
+                rc = command "${sfdx} force:mdapi:deploy -d mdapi-source/updated-package --targetusername PkgOrg --testlevel RunSpecifiedTests --runtests otInstagramFeedControllerTest -w -1"
                 if (rc != 0) {
                     error 'Salesforce push to Package org failed.'
                 }
