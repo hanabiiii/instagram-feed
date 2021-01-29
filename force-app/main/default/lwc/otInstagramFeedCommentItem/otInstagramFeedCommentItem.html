@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-media slds-has-flexi-truncate">
+        <div class="slds-media__figure">
+            <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                <img alt={comment.full_name} src={comment.profile_pic_url} title={comment.full_name} />
+            </span>
+        </div>
+        <div class="slds-media__body">
+            <h3 class="comment-item-title">
+                <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title={comment.full_name}>
+                    <span>{comment.full_name}</span>
+                </a>
+            </h3>
+            <span if:false={isCommentEmpty}>
+                <lightning-formatted-text value={commentText}></lightning-formatted-text>
+            </span>
+        </div>
+    </div>
+</template>
